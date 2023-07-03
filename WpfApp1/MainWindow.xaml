@@ -1,0 +1,23 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="600">
+    <Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBox Width="100" x:Name="TextBox1" Text="{Binding Left_operand, Mode=TwoWay}" TextChanged="TextBox1_TextChanged" Margin="5"/>
+            <ComboBox Width="50" SelectedItem="{Binding Operation}" ItemsSource="{Binding Operators}" SelectionChanged="ComboBox_SelectionChanged" Margin="5">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBox Width="100" x:Name="TextBox2" Text="{Binding Right_operand, Mode=TwoWay}" TextChanged="TextBox2_TextChanged" Margin="5"/>
+            <TextBox Width="100" Text="{Binding Result, Mode=TwoWay}" IsReadOnly="True" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>
